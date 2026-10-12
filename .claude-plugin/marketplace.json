@@ -1,0 +1,197 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "skills-agents",
+  "description": "Curated Claude Code skills, referenced from their upstream repos and pinned to a commit.",
+  "owner": {
+    "name": "aorfevre",
+    "url": "https://github.com/aorfevre"
+  },
+  "plugins": [
+    {
+      "name": "product-launch-motion",
+      "description": "Launch videos, promos and demo reels from code: script, voiceover sync, camera moves, film grade.",
+      "category": "motion-launch-video",
+      "tags": ["motion", "video", "gsap", "launch"],
+      "license": "MIT",
+      "homepage": "https://github.com/AbubakrChan/product-launch-motion",
+      "source": {
+        "source": "github",
+        "repo": "AbubakrChan/product-launch-motion",
+        "ref": "main",
+        "sha": "951d6149d2748a15058f79dcf8e8c4bf00824121"
+      }
+    },
+    {
+      "name": "motion-graphics-skills",
+      "description": "13 skills for launch videos, animated charts, reels and milestone reveals. Every frame is code.",
+      "category": "motion-launch-video",
+      "tags": ["motion", "video", "charts", "reels"],
+      "license": "MIT",
+      "homepage": "https://github.com/charlie947/motion-graphics-skills",
+      "source": {
+        "source": "github",
+        "repo": "charlie947/motion-graphics-skills",
+        "ref": "main",
+        "sha": "229022ebca76972e119e36ada23a1648d51665ab"
+      }
+    },
+    {
+      "name": "motion-design-howseen",
+      "description": "Motion design videos in pure code: HTML, Playwright and ffmpeg. Cuts land on the beat.",
+      "category": "motion-launch-video",
+      "tags": ["motion", "video", "playwright", "ffmpeg"],
+      "license": "MIT",
+      "homepage": "https://github.com/howseen-ai/claude-motion-design",
+      "skills": ["./skill/"],
+      "source": {
+        "source": "github",
+        "repo": "howseen-ai/claude-motion-design",
+        "ref": "main",
+        "sha": "3d90d349ef3fdde9b7e89de4df4a2159c9e8697f"
+      }
+    },
+    {
+      "name": "hyperframes-student-kit",
+      "description": "Edit footage, reels and Shorts: transcript-driven cuts, dead-air removal, motion-graphics cards.",
+      "category": "motion-edit-footage",
+      "tags": ["video", "editing", "hyperframes", "shorts"],
+      "license": "MIT",
+      "homepage": "https://github.com/nateherkai/hyperframes-student-kit",
+      "skills": ["./.agents/skills/"],
+      "source": {
+        "source": "github",
+        "repo": "nateherkai/hyperframes-student-kit",
+        "ref": "main",
+        "sha": "0d30152a82b9ceb93cfdd9bdbf46f0d5ab3cde86"
+      }
+    },
+    {
+      "name": "motion-broll",
+      "description": "Motion B-roll timed to your words, background removal, explainer styles and sound effects.",
+      "category": "motion-edit-footage",
+      "tags": ["video", "b-roll", "explainer", "sfx"],
+      "license": "MIT",
+      "homepage": "https://github.com/Barty-Bart/motion-graphics",
+      "source": {
+        "source": "github",
+        "repo": "Barty-Bart/motion-graphics",
+        "ref": "main",
+        "sha": "c309902c177f21da1ec296a9cbb642944c9211c0"
+      }
+    },
+    {
+      "name": "animate",
+      "description": "Procedural animated shorts in 7 styles, storyboard first, single-file canvas videos.",
+      "category": "motion-animated-shorts",
+      "tags": ["animation", "canvas", "explainer", "storyboard"],
+      "license": "MIT",
+      "homepage": "https://github.com/cth9191/animate",
+      "source": {
+        "source": "git-subdir",
+        "url": "cth9191/animate",
+        "path": "plugins/animate",
+        "ref": "main",
+        "sha": "7e5eb56feb2dd573f890e1b7b34748af43d58263"
+      }
+    },
+    {
+      "name": "motion-toolkit",
+      "description": "Motion design toolkit: taste rules, a review loop that checks its own frames, sound design, web sims.",
+      "category": "motion-animated-shorts",
+      "tags": ["motion", "remotion", "sound", "review"],
+      "license": "MIT",
+      "homepage": "https://github.com/whaleyxbt/claude-motion",
+      "skills": ["./.claude/skills/"],
+      "source": {
+        "source": "github",
+        "repo": "whaleyxbt/claude-motion",
+        "ref": "main",
+        "sha": "e627941543d9988b155dc610bb9cc0115a5e365e"
+      }
+    },
+    {
+      "name": "remotion-motion-graphics",
+      "description": "Professional motion graphics with Remotion: fixes flat fades and stiff motion, B-roll, captions.",
+      "category": "motion-animated-shorts",
+      "tags": ["remotion", "motion", "captions"],
+      "license": "MIT",
+      "homepage": "https://github.com/haidrrrry/claude-remotion-skill",
+      "skills": ["./remotion-motion-graphics/"],
+      "source": {
+        "source": "github",
+        "repo": "haidrrrry/claude-remotion-skill",
+        "ref": "main",
+        "sha": "1dcbe5e3fc6cf970bd10d3cc05f0a8a5d19d0383"
+      }
+    },
+    {
+      "name": "motion-dev-animations",
+      "description": "Motion.dev web animations: 120fps, spring physics, scroll effects, gesture interactions.",
+      "category": "motion-web",
+      "tags": ["motion.dev", "web", "react", "animation"],
+      "license": "MIT",
+      "homepage": "https://github.com/199-biotechnologies/motion-dev-animations-skill",
+      "source": {
+        "source": "github",
+        "repo": "199-biotechnologies/motion-dev-animations-skill",
+        "ref": "main",
+        "sha": "3feedfb4dba8adae40fc9a5f9a23e3dda2121205"
+      }
+    },
+    {
+      "name": "hyperframes",
+      "description": "Official HyperFrames skills by HeyGen: write HTML, render video. Compositions, GSAP, captions, voiceovers.",
+      "category": "motion-building-blocks",
+      "tags": ["hyperframes", "video", "html", "official"],
+      "license": "Apache-2.0",
+      "homepage": "https://hyperframes.heygen.com",
+      "source": {
+        "source": "github",
+        "repo": "heygen-com/hyperframes",
+        "ref": "main",
+        "sha": "2905162d925fc87fb8242e24ed0bbf025d307ea1"
+      }
+    },
+    {
+      "name": "remotion-skills",
+      "description": "Official Remotion best practices for coding agents: create, captions, maps, multimedia, interactivity.",
+      "category": "motion-building-blocks",
+      "tags": ["remotion", "react", "video", "official"],
+      "homepage": "https://github.com/remotion-dev/skills",
+      "source": {
+        "source": "github",
+        "repo": "remotion-dev/skills",
+        "ref": "main",
+        "sha": "32b241b97f4e0e4ab61fe9a41b05e6e64503f8c5"
+      }
+    },
+    {
+      "name": "gsap-skills",
+      "description": "Official GSAP skills: core, plugins, ScrollTrigger, frameworks and performance.",
+      "category": "motion-building-blocks",
+      "tags": ["gsap", "animation", "official"],
+      "license": "MIT",
+      "homepage": "https://github.com/greensock/gsap-skills",
+      "source": {
+        "source": "github",
+        "repo": "greensock/gsap-skills",
+        "ref": "main",
+        "sha": "aed9cfd3277740755f6bfc1155c7aa645403b760"
+      }
+    },
+    {
+      "name": "motion-design-principles",
+      "description": "LottieFiles motion design principles for agents: timing, easing, choreography, the 12 Disney principles for UI.",
+      "category": "motion-building-blocks",
+      "tags": ["motion", "principles", "ui", "lottie"],
+      "license": "MIT",
+      "homepage": "https://github.com/LottieFiles/motion-design-skill",
+      "source": {
+        "source": "github",
+        "repo": "LottieFiles/motion-design-skill",
+        "ref": "main",
+        "sha": "f9a8a041b85185ee4881b3471d3415e939aac772"
+      }
+    }
+  ]
+}
