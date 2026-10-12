@@ -137,6 +137,106 @@
         "ref": "main",
         "sha": "f9a8a041b85185ee4881b3471d3415e939aac772"
       }
+    },
+    {
+      "name": "seo",
+      "description": "AgriciDaniel claude-seo. The one SEO plugin that stands up whole: technical audit, sitemap validator, GEO with correct crawler semantics, schema, agent readiness. 67 real Python tools. Run /seo setup once. Adds a PostToolUse hook on every Edit and Write.",
+      "category": "seo",
+      "tags": [
+        "seo",
+        "geo",
+        "sitemap",
+        "technical-seo",
+        "schema"
+      ],
+      "license": "MIT",
+      "homepage": "https://github.com/AgriciDaniel/claude-seo",
+      "source": {
+        "source": "github",
+        "repo": "AgriciDaniel/claude-seo",
+        "ref": "main",
+        "sha": "4b99de2f7de7e7d5247042e5fb5b4ea9368ef734"
+      }
+    },
+    {
+      "name": "ai-seo",
+      "description": "One skill from coreyhaines31/marketingskills. The best GEO document reviewed: 2026-dated, sourced, per-engine crawler split, llms.txt guidance, skeptical about one-run measurements.",
+      "category": "seo",
+      "tags": [
+        "geo",
+        "ai-search",
+        "llms-txt"
+      ],
+      "license": "MIT",
+      "homepage": "https://github.com/coreyhaines31/marketingskills/tree/main/skills/ai-seo",
+      "source": {
+        "source": "git-subdir",
+        "url": "coreyhaines31/marketingskills",
+        "path": "skills/ai-seo",
+        "ref": "main",
+        "sha": "1efedbc5148b54b2f0f6c6c9fe0be62e151c7fff"
+      }
+    },
+    {
+      "name": "site-architecture",
+      "description": "One skill from coreyhaines31/marketingskills. The only quantified internal-linking rule found: 5 to 10 links per 1000 words, hub and spoke, a 7-item link audit checklist.",
+      "category": "seo",
+      "tags": [
+        "internal-linking",
+        "site-architecture"
+      ],
+      "license": "MIT",
+      "homepage": "https://github.com/coreyhaines31/marketingskills/tree/main/skills/site-architecture",
+      "source": {
+        "source": "git-subdir",
+        "url": "coreyhaines31/marketingskills",
+        "path": "skills/site-architecture",
+        "ref": "main",
+        "sha": "1efedbc5148b54b2f0f6c6c9fe0be62e151c7fff"
+      }
+    },
+    {
+      "name": "seo-audit-i18n",
+      "description": "One skill from coreyhaines31/marketingskills. Audit checklist whose hreflang and international sitemap section is the strongest material found: xhtml:link size math, split by content type, Next.js alternates caveat.",
+      "category": "seo",
+      "tags": [
+        "seo-audit",
+        "hreflang",
+        "sitemap"
+      ],
+      "license": "MIT",
+      "homepage": "https://github.com/coreyhaines31/marketingskills/tree/main/skills/seo-audit",
+      "source": {
+        "source": "git-subdir",
+        "url": "coreyhaines31/marketingskills",
+        "path": "skills/seo-audit",
+        "ref": "main",
+        "sha": "1efedbc5148b54b2f0f6c6c9fe0be62e151c7fff"
+      }
+    },
+    {
+      "name": "seo-technical-rules",
+      "description": "The technical subtree of kostja94/marketing-skills, 9 prose skills with real rules: robots per-bot table, canonical, indexing and noindex by page type, crawlability, rendering, IndexNow, XML sitemap limits and lastmod rules. Known error: sitemap line 78 inverts the 50,000 URL rule.",
+      "category": "seo",
+      "tags": [
+        "technical-seo",
+        "robots",
+        "sitemap",
+        "indexing",
+        "canonical"
+      ],
+      "license": "MIT",
+      "homepage": "https://github.com/kostja94/marketing-skills/tree/main/skills/seo/technical",
+      "skills": [
+        "."
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "kostja94/marketing-skills",
+        "path": "skills/seo/technical",
+        "ref": "main",
+        "sha": "8dd89c57395e4dbe079f0387a495c6b9795818a2"
+      }
     }
   ]
 }

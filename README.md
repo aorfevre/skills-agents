@@ -57,6 +57,31 @@ Known issues in kept plugins, reported upstream or to be reported:
 - `motion-design-principles`: the spring table mixes absolute damping with damping ratio. Only `SKILL.md` is worth the context; `director/` repeats it.
 - `remotion-skills`: `remotion-best-practices/` contains a second copy of the other 11 skills.
 
+### SEO, GEO, internal linking, sitemaps
+
+Seven repos were reviewed against four needs: GEO, technical and on-page SEO, internal linking, sitemaps. One repo stands up whole. Four single-skill entries are cut from two marketing packs with a subdirectory source, so the other 200 skills in those packs never load.
+
+| Plugin | What it adds | Upstream | License |
+| --- | --- | --- | --- |
+| `seo` | The one SEO plugin that holds up as a whole. Technical audit, the only sitemap validator found, GEO with correct crawler semantics, schema, agent readiness. 67 real Python tools. | [AgriciDaniel/claude-seo](https://github.com/AgriciDaniel/claude-seo) | MIT |
+| `ai-seo` | The best GEO document reviewed. 2026-dated, sourced, splits OAI-SearchBot from GPTBot, covers llms.txt and agent readiness, warns that one run is an anecdote. | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/main/skills/ai-seo) | MIT |
+| `site-architecture` | The only quantified internal-linking rule found: 5 to 10 links per 1000 words, hub and spoke, a 7-item link audit. | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/main/skills/site-architecture) | MIT |
+| `seo-audit-i18n` | Audit checklist. Its hreflang and international sitemap section is the strongest found. | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/main/skills/seo-audit) | MIT |
+| `seo-technical-rules` | 9 prose skills with real rules: robots per-bot table, canonical, indexing by page type, crawlability, rendering, IndexNow, XML sitemap limits and lastmod. | [kostja94/marketing-skills](https://github.com/kostja94/marketing-skills/tree/main/skills/seo/technical) | MIT |
+
+Coverage of the four needs after this cut:
+
+- GEO: strong. `seo` and `ai-seo` together.
+- Technical and on-page SEO: strong. `seo` for tooling, `seo-technical-rules` for rules.
+- Sitemaps: strong on validation and limits. `seo` has the only script. No repo covers news sitemaps.
+- Internal linking: weak. Every repo is prose. No repo ships a crawler that counts inlinks or finds orphan pages. `site-architecture` is the best of the weak options. This gap needs a script written for it.
+
+Known issues in kept SEO plugins:
+
+- `seo`: `/seo setup` builds a Python venv with 28 pinned deps. It adds a PostToolUse hook on every Edit and Write that spawns node and python. The script exits early when the file has no JSON-LD. One Skool community footer in the skills.
+- `seo-technical-rules`: sitemap skill line 78 inverts the 50,000 URL rule. Reported upstream to be done.
+- `ai-seo`: stats drift monthly. The skill itself says to re-check before quoting.
+
 ## Rejected
 
 Reviewed in full and left out. Each one was installed, read, and where possible run.
@@ -69,6 +94,12 @@ Reviewed in full and left out. Each one was installed, read, and where possible 
 | [whaleyxbt/claude-motion](https://github.com/whaleyxbt/claude-motion) | The sound engine and beat-sheet loop are real and measured. But the skills only work with the cloned repo as the working directory, and a plugin install pulls 293 MB of `node_modules`. Worth revisiting if upstream makes the skills path-independent. |
 | [haidrrrry/claude-remotion-skill](https://github.com/haidrrrry/claude-remotion-skill) | Generic rules Claude already applies. Stale against the current Remotion API. Everything in it is covered by `remotion-skills`. |
 | [199-biotechnologies/motion-dev-animations-skill](https://github.com/199-biotechnologies/motion-dev-animations-skill) | Framer Motion basics Claude already knows. Eight referenced files do not exist. Ships its own deployment diary and a `SKILL.md.backup`. |
+| [zubair-trabzada/geo-seo-claude](https://github.com/zubair-trabzada/geo-seo-claude) | Wrong on the facts that matter. Says GPTBot governs ChatGPT Search when OAI-SearchBot does. Lists a crawler Anthropic does not document. Calls FAQPage still restricted. A quarter of the words are an agency CRM. Its llms.txt generator emitted garbled text and a fabricated contact address. |
+| [TheCraigHewitt/seomachine](https://github.com/TheCraigHewitt/seomachine) | A content-ops workspace, not a skill pack. Every script hard-requires DataForSEO. Five agents hardcode one client name. 20 of 25 skills are CRO and ads. |
+| [Ryze-AI-Adgent/open-seo-mcp-skills](https://github.com/Ryze-AI-Adgent/open-seo-mcp-skills) | 7 of 8 skills are dead without a hosted MCP server and account at get-ryze.ai. A product onboarding funnel in SKILL.md form. |
+| [irinabuht12-oss/marketing-skills](https://github.com/irinabuht12-oss/marketing-skills) | No LICENSE file. 41 of 49 skills are ads. GEO skills are 350 words each, half product copy, zero scripts. Content shipped three times in the repo. |
+| coreyhaines31/marketingskills, the other 46 skills | Generalist marketing pack. CRO, ads, email, pricing, churn. Out of scope. The three kept skills are listed above. |
+| kostja94/marketing-skills, the other 163 skills | 172 skills nested four levels deep, invisible to a plugin loader. Internal-links skill is 496 words with no method. Only the technical subtree is kept. |
 | [motiondivision/motion](https://github.com/motiondivision/motion) | A library, not a skill. Its skill folders are for contributors to the library. |
 | [remotion-dev/remotion](https://github.com/remotion-dev/remotion) | A library, not a skill. Use `remotion-skills` for the agent guidance. |
 
