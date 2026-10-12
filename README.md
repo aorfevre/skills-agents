@@ -82,6 +82,33 @@ Known issues in kept SEO plugins:
 - `seo-technical-rules`: sitemap skill line 78 inverts the 50,000 URL rule. Reported upstream to be done.
 - `ai-seo`: stats drift monthly. The skill itself says to re-check before quoting.
 
+### Reverse engineering
+
+This entry is the skill only. The tools come from the `rea-agents` MCP server (Model Context Protocol, a local tool server that the agent calls). Register the server once per machine:
+
+```bash
+claude mcp add --scope user rea -- npx -y rea-agents@6.4.0 mcp
+```
+
+Do not use `rea setup` for this. It also writes a second copy of the skill to `~/.claude/skills/reverse-engineer-anything`, which duplicates this plugin.
+
+| Plugin | What it adds | Upstream | License |
+| --- | --- | --- | --- |
+| `rea` | Routes each target type to its first tool: native binary, Electron or ASAR, .NET, APK, firmware, HAR, browser page. Every conclusion must cite Evidence IDs and split observation, inference and unknown. Summary-first paging for large results. The maintainer skills in the same repo are left out. | [morluto/rea](https://github.com/morluto/rea/tree/main/.agents/skills/reverse-engineer-anything) | MIT |
+
+Review results, measured on 2026-10-12 with npm `rea-agents@6.4.0` on macOS:
+
+- The server exposes 170 tools. The `tools/list` response is 1.95 MB of JSON. Input schemas are 365 KB, and `compare_web_captures` alone is 57 KB. Expect a large context cost when the client loads all tool schemas.
+- Static analysis of the Notion `app.asar` took 1 min 54 s. It returned 359 findings and 24 limitations. The analysis worker ran out of heap on 3 large webpack files and recorded each one as a limitation.
+- The default run stops on an ASAR integrity mismatch for unpacked `.node` files. This is correct behavior, not a crash. The error names the flag that continues: `--integrity-policy record-and-continue`.
+- Native decompilation needs Hopper, Ghidra or IDA. None was installed, so that path was not tested.
+
+Known issues:
+
+- The skill pin follows `main`, which is ahead of npm. At this pin, the skill documents `inspect_packet_capture`, `inspect_wasm_artifact`, `inspect_go_binary` and `inspect_sqlite_database`. Release 6.4.0 does not have them. The skill tells the agent to trust the live tool list, so the agent can recover.
+- Node 22.19 or later on 22.x, 24.11 or later on 24.x, or 26 and later. The SQLite tool needs Node 24.15 or later. The optional `frida` dependency installs with the package.
+- The upstream `DISCLAIMER.md` prohibits DRM and license-check bypass, anti-cheat work, and authentication bypass. Use REA only on targets you own or have authorization to examine.
+
 ## Rejected
 
 Reviewed in full and left out. Each one was installed, read, and where possible run.

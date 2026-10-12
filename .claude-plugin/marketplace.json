@@ -237,6 +237,27 @@
         "ref": "main",
         "sha": "8dd89c57395e4dbe079f0387a495c6b9795818a2"
       }
+    },
+    {
+      "name": "rea",
+      "description": "REA reverse-engineering skill: routes a target to the right tool (native binary, Electron/ASAR, .NET, APK, firmware, browser) and requires Evidence IDs that split observation from inference. Needs the rea-agents MCP server registered separately: 170 tools.",
+      "category": "reverse-engineering",
+      "tags": [
+        "reverse-engineering",
+        "mcp",
+        "electron",
+        "decompile",
+        "binary"
+      ],
+      "license": "MIT",
+      "homepage": "https://github.com/morluto/rea/tree/main/.agents/skills/reverse-engineer-anything",
+      "source": {
+        "source": "git-subdir",
+        "url": "morluto/rea",
+        "path": ".agents/skills/reverse-engineer-anything",
+        "ref": "main",
+        "sha": "7b15762d09acf3d4ffb937f55ec1b54e7db5fbfa"
+      }
     }
   ]
 }
