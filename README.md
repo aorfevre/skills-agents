@@ -109,6 +109,46 @@ Known issues:
 - Node 22.19 or later on 22.x, 24.11 or later on 24.x, or 26 and later. The SQLite tool needs Node 24.15 or later. The optional `frida` dependency installs with the package.
 - The upstream `DISCLAIMER.md` prohibits DRM and license-check bypass, anti-cheat work, and authentication bypass. Use REA only on targets you own or have authorization to examine.
 
+### Engineering practice
+
+Four single-skill cuts from [mattpocock/skills](https://github.com/mattpocock/skills). None of the four needs `/setup-matt-pocock-skills`, an issue tracker, or another skill. The whole 27-skill plugin is already in `claude-plugins-official`, so this catalog lists only the cuts.
+
+| Plugin | What it adds | Upstream | License |
+| --- | --- | --- | --- |
+| `diagnosing-bugs` | The strongest skill in the pack. Build a feedback loop that can fail before you state any hypothesis. Rank 3 to 5 hypotheses that can be proved false. Tag debug logs so that they get removed. | [skills/engineering/diagnosing-bugs](https://github.com/mattpocock/skills/tree/main/skills/engineering/diagnosing-bugs) | MIT |
+| `codebase-design` | Module design rules you can apply: the deletion test, deep modules, one adapter means a hypothetical seam, design it twice. | [skills/engineering/codebase-design](https://github.com/mattpocock/skills/tree/main/skills/engineering/codebase-design) | MIT |
+| `grilling` | 328 words. Interviews you in rounds before work starts. The agent finds the facts, you make the decisions, and each question comes with a recommended answer. | [skills/productivity/grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling) | MIT |
+| `wizard` | Builds interactive setup scripts from a bash template. A test run wrote `.env` with mode 600 and exited 0. | [skills/engineering/wizard](https://github.com/mattpocock/skills/tree/main/skills/engineering/wizard) | MIT |
+
+Known issues:
+
+- `claude plugin details` estimates about 2,000 always-on tokens for each cut, but the skill descriptions are only 38 to 78 tokens. The estimate for the whole 27-skill plugin is about 3,600. The cause of the gap is not confirmed. Install only the cuts you use.
+- `tdd` in the same pack calls `codebase-design`. Install both if you add `tdd` from the official listing.
+
+### Code review
+
+| Plugin | What it adds | Upstream | License |
+| --- | --- | --- | --- |
+| `open-code-review` | Alibaba's two portable skills. `open-code-review` runs the `ocr` CLI: fixed code selects files, groups them and attaches per-language rules, then an LLM reviews each group. `open-code-review-delegate` needs no LLM in `ocr`: it selects files and rules, and Claude does the review. | [alibaba/open-code-review](https://github.com/alibaba/open-code-review/tree/main/skills) | Apache-2.0 |
+
+Install the CLI first: `npm i -g @alibaba-group/open-code-review`. Delegate mode is the best fit inside Claude Code. It needs no API key and adds no second bill.
+
+Review results, measured on 2026-10-12 with `ocr` 1.12.13 on macOS:
+
+- A scratch repo with 5 planted bugs: SQL injection, XSS through `innerHTML`, a null dereference, a Go map written from goroutines with no lock, and a `*` dependency version. `ocr review` found all 5 and 2 more valid issues, with no false positives. 16 s, 41,364 tokens, Sonnet 5.5.
+- These were textbook bugs. The test shows that the pipeline works. It does not measure recall on real code.
+- File selection excluded the lockfile and the Markdown file. The rules are specific to each language, for example the Go 1.22 change to loop variables.
+- Inside Claude Code, `ocr` reads `ANTHROPIC_BASE_URL` and `ANTHROPIC_AUTH_TOKEN` from the environment and needs only `ANTHROPIC_MODEL`. Each review bills the same account as the session.
+- Telemetry is off by default. This was checked in `internal/telemetry/config.go`.
+- The upstream claim of 1/9 of the tokens of Claude Code is not verified here.
+
+Known issues:
+
+- The skills come from the repo's root `skills/` folder. Upstream also ships a Claude Code plugin with two slash commands, but its `/review` applies fixes without asking. The skill asks first unless you say "review and fix".
+- When `ocr` is missing, the skill tells the agent to run `npm i -g` without asking you.
+- The repo holds a second copy of each skill under `plugins/open-code-review/skills/`. The two copies already differ.
+- The npm install script places a native binary for your platform.
+
 ## Rejected
 
 Reviewed in full and left out. Each one was installed, read, and where possible run.
@@ -129,6 +169,7 @@ Reviewed in full and left out. Each one was installed, read, and where possible 
 | kostja94/marketing-skills, the other 163 skills | 172 skills nested four levels deep, invisible to a plugin loader. Internal-links skill is 496 words with no method. Only the technical subtree is kept. |
 | [motiondivision/motion](https://github.com/motiondivision/motion) | A library, not a skill. Its skill folders are for contributors to the library. |
 | [remotion-dev/remotion](https://github.com/remotion-dev/remotion) | A library, not a skill. Use `remotion-skills` for the agent guidance. |
+| mattpocock/skills, the other 23 skills | 7 skills need `/setup-matt-pocock-skills` and an issue tracker, and together they are a workflow system that competes with GSD and superpowers. `tdd`, `writing-for-agents` and `domain-modeling` are good but overlap skills already installed. `grill-me` and `grill-with-docs` are one-line wrappers. The `misc/` git guardrail misses `git -C <dir> push` and `gh pr merge`. `in-progress/` is beta. |
 
 ## Add a skill
 

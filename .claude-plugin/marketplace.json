@@ -258,6 +258,105 @@
         "ref": "main",
         "sha": "7b15762d09acf3d4ffb937f55ec1b54e7db5fbfa"
       }
+    },
+    {
+      "name": "diagnosing-bugs",
+      "description": "One skill from mattpocock/skills. Build a feedback loop that can fail before any hypothesis, rank 3 to 5 falsifiable hypotheses, tag debug logs for cleanup. No setup.",
+      "category": "engineering-practice",
+      "tags": [
+        "debugging",
+        "feedback-loop",
+        "hypotheses"
+      ],
+      "license": "MIT",
+      "homepage": "https://github.com/mattpocock/skills/tree/main/skills/engineering/diagnosing-bugs",
+      "source": {
+        "source": "git-subdir",
+        "url": "mattpocock/skills",
+        "path": "skills/engineering/diagnosing-bugs",
+        "ref": "main",
+        "sha": "49dd158d1076134a641b33efb035946536778336"
+      }
+    },
+    {
+      "name": "codebase-design",
+      "description": "One skill from mattpocock/skills. Module design vocabulary you can apply: the deletion test, deep modules, one adapter means a hypothetical seam, design it twice.",
+      "category": "engineering-practice",
+      "tags": [
+        "architecture",
+        "modules",
+        "design"
+      ],
+      "license": "MIT",
+      "homepage": "https://github.com/mattpocock/skills/tree/main/skills/engineering/codebase-design",
+      "source": {
+        "source": "git-subdir",
+        "url": "mattpocock/skills",
+        "path": "skills/engineering/codebase-design",
+        "ref": "main",
+        "sha": "49dd158d1076134a641b33efb035946536778336"
+      }
+    },
+    {
+      "name": "grilling",
+      "description": "One skill from mattpocock/skills. Interviews you in rounds before work starts: the agent finds the facts, you make the decisions, each question comes with a recommended answer.",
+      "category": "engineering-practice",
+      "tags": [
+        "requirements",
+        "interview",
+        "planning"
+      ],
+      "license": "MIT",
+      "homepage": "https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling",
+      "source": {
+        "source": "git-subdir",
+        "url": "mattpocock/skills",
+        "path": "skills/productivity/grilling",
+        "ref": "main",
+        "sha": "49dd158d1076134a641b33efb035946536778336"
+      }
+    },
+    {
+      "name": "wizard",
+      "description": "One skill from mattpocock/skills. Builds interactive setup scripts from a tested bash template: prompts, secrets written to .env with mode 600.",
+      "category": "engineering-practice",
+      "tags": [
+        "setup-script",
+        "bash",
+        "env"
+      ],
+      "license": "MIT",
+      "homepage": "https://github.com/mattpocock/skills/tree/main/skills/engineering/wizard",
+      "source": {
+        "source": "git-subdir",
+        "url": "mattpocock/skills",
+        "path": "skills/engineering/wizard",
+        "ref": "main",
+        "sha": "49dd158d1076134a641b33efb035946536778336"
+      }
+    },
+    {
+      "name": "open-code-review",
+      "description": "Alibaba open-code-review skills: deterministic file selection and per-language rules, then an LLM review per file group. Delegate mode needs no API key: ocr picks files and rules, Claude reviews. Needs the ocr CLI.",
+      "category": "code-review",
+      "tags": [
+        "code-review",
+        "security",
+        "delegate",
+        "rules"
+      ],
+      "license": "Apache-2.0",
+      "homepage": "https://github.com/alibaba/open-code-review/tree/main/skills",
+      "skills": [
+        "."
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "alibaba/open-code-review",
+        "path": "skills",
+        "ref": "main",
+        "sha": "4a3844c42fe07eabe5ca47cdd4c07b7a5d232544"
+      }
     }
   ]
 }
