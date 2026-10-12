@@ -78,7 +78,7 @@ Coverage of the four needs after this cut:
 
 Known issues in kept SEO plugins:
 
-- `seo`: `/seo setup` builds a Python venv with 28 pinned deps. It adds a PostToolUse hook on every Edit and Write that spawns node and python. The script exits early when the file has no JSON-LD. One Skool community footer in the skills.
+- `seo`: install as `seo@skills-agents`. The upstream manifest name is `claude-seo`, and that name is reserved for marketplace entries, so details and skill prefixes use `claude-seo` (`claude plugin details claude-seo`, `/claude-seo:seo`). `/seo setup` builds a Python venv with 28 pinned deps. It adds a PostToolUse hook on every Edit and Write that spawns node and python. The script exits early when the file has no JSON-LD. One Skool community footer in the skills.
 - `seo-technical-rules`: sitemap skill line 78 inverts the 50,000 URL rule. Reported upstream to be done.
 - `ai-seo`: stats drift monthly. The skill itself says to re-check before quoting.
 
