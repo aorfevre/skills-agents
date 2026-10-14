@@ -139,6 +139,26 @@
       }
     },
     {
+      "name": "animate-text",
+      "description": "24 local text-animation recipes with exact timing, easing, stagger, playback and WAAPI, Motion and GSAP mappings. Four optional Node.js lookup scripts. No MCP or account. Upstream declares no license; reduced-motion and screen-reader guidance are missing.",
+      "category": "motion-building-blocks",
+      "tags": [
+        "motion",
+        "text-animation",
+        "gsap",
+        "waapi",
+        "recipes"
+      ],
+      "homepage": "https://github.com/pixel-point/animate-text/tree/main/skills/animate-text",
+      "source": {
+        "source": "git-subdir",
+        "url": "pixel-point/animate-text",
+        "path": "skills/animate-text",
+        "ref": "main",
+        "sha": "0f783e459d62d851b7e5308e0596fa5fbac00c7e"
+      }
+    },
+    {
       "name": "seo",
       "description": "AgriciDaniel claude-seo. The one SEO plugin that stands up whole: technical audit, sitemap validator, GEO with correct crawler semantics, schema, agent readiness. 67 real Python tools. Run /seo setup once. Adds a PostToolUse hook on every Edit and Write.",
       "category": "seo",

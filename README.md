@@ -49,6 +49,16 @@ Install as a stack. The official plugins give the API. The others give taste, ti
 | `remotion-skills` | Official Remotion skills. The only current source for the Remotion API. No taste layer. | [remotion-dev/skills](https://github.com/remotion-dev/skills) | none declared |
 | `gsap-skills` | Official GSAP. Corrects stale model knowledge: plugins are free now, `useGSAP` hook, ScrollTrigger pitfalls. | [greensock/gsap-skills](https://github.com/greensock/gsap-skills) | MIT |
 | `motion-design-principles` | LottieFiles. Library-agnostic numbers: durations per component, easing curves, exit ratios, stagger budgets. | [LottieFiles/motion-design-skill](https://github.com/LottieFiles/motion-design-skill) | MIT |
+| `animate-text` | 24 text-animation recipes with exact timing, easing, stagger and playback rules, plus WAAPI, Motion and GSAP mappings. Four optional Node.js lookup scripts. Local files; no MCP or account. | [pixel-point/animate-text](https://github.com/pixel-point/animate-text/tree/main/skills/animate-text) | none declared |
+
+`animate-text` is sourced directly from its original upstream, limited to `skills/animate-text/`. Better Design vendors the same skill, but its MCP workflow and component registry are not included. The helper scripts need Node.js 20+; the Markdown and JSON recipes can be read without Node.
+
+Review results for `animate-text`, measured on 2026-10-14:
+
+- An isolated marketplace install succeeded and contained only the intended skill. The checks below ran against that installed copy.
+- The catalog contains 24 recipes; 20 are marked visible in the upstream showcase.
+- All 48 spec/effect lookups passed from an unrelated working directory. Search returned the expected named and layout-aware effects; unknown IDs exited with an error.
+- These checks cover the lookup tools and bundled data. Generated animation quality and visual parity were not benchmarked.
 
 Known issues in kept plugins, reported upstream or to be reported:
 
@@ -56,6 +66,7 @@ Known issues in kept plugins, reported upstream or to be reported:
 - `animate`: `review.mjs` crashes when ffmpeg lacks the `drawtext` filter. Playwright must be installed globally.
 - `motion-design-principles`: the spring table mixes absolute damping with damping ratio. Only `SKILL.md` is worth the context; `director/` repeats it.
 - `remotion-skills`: `remotion-best-practices/` contains a second copy of the other 11 skills.
+- `animate-text`: upstream has no declared license. The skill omits reduced-motion and screen-reader guidance; implementations need those checks separately. Exact showcase recipes loop by default, so request a one-shot reveal when that is the intended behavior.
 
 ### SEO, GEO, internal linking, sitemaps
 
