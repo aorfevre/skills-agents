@@ -168,6 +168,22 @@ Known issues:
 
 Reviewed on 2026-10-26 at c1c8a8c: Markdown guides plus `validate-findings.cjs` and `validate-coverage-ledger.cjs` (fs/path only, no network, no install scripts or hooks).
 
+### Design
+
+| Plugin | What it adds | Upstream | License |
+| --- | --- | --- | --- |
+| `impeccable` | One skill with 24 `/impeccable` commands: `shape`, `critique`, `audit`, `polish`, `typeset`, `layout`, `harden` and more, one reference file each. A loader reads `PRODUCT.md`, `DESIGN.md` and surface briefs before work starts. A rule-based detector names AI tells such as gradient text and glow shadows. Prose-only design skills have neither the loader nor the detector. | [pbakaus/impeccable](https://github.com/pbakaus/impeccable/tree/main/plugin/skills/impeccable) | Apache-2.0 |
+
+Reviewed on 2026-10-26 at 6743a34 (skill 4.7.1, engine 0.1.17):
+
+- Only `plugin/skills` is referenced. The upstream plugin also registers `SessionStart`, `PostToolUse` (Edit/Write) and `Stop` hooks. These run the engine in every session of every project. Use `/impeccable hooks on` to turn on the detector hook for one project.
+- The four upstream subagents are also left out. A marketplace entry cannot keep them and drop the hooks: the upstream `plugin.json` declares components, so a non-strict entry fails to load. The skill uses `reference/degraded/*.md` when the subagents are missing.
+- The first run downloads a native engine binary from the GitHub release `engine-v<version>`, about 18 to 22 MB for each platform. The launcher checks its sha256 against `engine-checksums.txt` in the pinned commit and caches it in `~/.impeccable/bin/<version>/`. It also writes `~/.impeccable/update-check.json`. No Node is needed.
+- Tested in a scratch project: `engine-probe` returned `impeccable-engine 0.1.17`. `context` returned its directives. `detect` flagged `gradient-text` on a planted heading. `hooks on` wrote only `.impeccable/config.json` and `.impeccable/config.local.json`, and `hooks reset` removed both.
+- Not tested: `live`, `generate`, image generation and the subagent flows.
+- Installed size is 2.2 MB, with a 1.1 MB font index and a 550 KB browser script. Always-on cost is about 2,200 tokens. One invocation costs about 5,900 tokens.
+- Maintenance risk: upstream releases a new engine every few days. An old pin works only while its engine release stays published.
+
 ## Rejected
 
 Reviewed in full and left out. Each one was installed, read, and where possible run.
