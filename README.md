@@ -160,6 +160,14 @@ Known issues:
 - The repo holds a second copy of each skill under `plugins/open-code-review/skills/`. The two copies already differ.
 - The npm install script places a native binary for your platform.
 
+### Security
+
+| Plugin | What it does | Source | License |
+|---|---|---|---|
+| `security-audit` | Multi-phase security audit run by the coding agent before a release: reconnaissance, hunting by attack class, validation and a JSON findings report checked by two local Node.js validators. | [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill/tree/main/skills/security-audit) | MIT |
+
+Reviewed on 2026-10-26 at c1c8a8c: Markdown guides plus `validate-findings.cjs` and `validate-coverage-ledger.cjs` (fs/path only, no network, no install scripts or hooks).
+
 ## Rejected
 
 Reviewed in full and left out. Each one was installed, read, and where possible run.

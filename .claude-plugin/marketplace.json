@@ -377,6 +377,25 @@
         "ref": "main",
         "sha": "4a3844c42fe07eabe5ca47cdd4c07b7a5d232544"
       }
+    },
+    {
+      "name": "security-audit",
+      "description": "Cloudflare security-audit skill: multi-phase security audit (recon, hunting, validation, reporting) with independently verified, machine-readable findings. Two local Node.js validators, no network calls.",
+      "category": "security",
+      "tags": [
+        "security",
+        "audit",
+        "pre-release"
+      ],
+      "license": "MIT",
+      "homepage": "https://github.com/cloudflare/security-audit-skill/tree/main/skills/security-audit",
+      "source": {
+        "source": "git-subdir",
+        "url": "cloudflare/security-audit-skill",
+        "path": "skills/security-audit",
+        "ref": "main",
+        "sha": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8"
+      }
     }
   ]
 }
